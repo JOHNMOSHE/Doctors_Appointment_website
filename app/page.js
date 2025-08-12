@@ -4,8 +4,10 @@ import { ArrowRight, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Pricing from "@/components/pricing";
+
+import { SignedIn } from "@clerk/nextjs";
 import { creditBenefits, features, testimonials } from "@/lib/data";
+import Pricing from "@/components/pricing";
 
 export default function Home() {
   return (
@@ -119,7 +121,9 @@ export default function Home() {
 
           <div className="mx-auto">
             {/* Clerk Pricing Table */}
-            <Pricing />
+            <SignedIn>
+              <Pricing />
+            </SignedIn>
 
             {/* Description */}
             <Card className="mt-12 bg-muted/20 border-emerald-900/30">
